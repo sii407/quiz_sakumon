@@ -1,0 +1,73 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding-top: 80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 60px;
+    background-color: #f4f3e4; 
+    color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: space-around;
+    z-index: 998;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0;
+    padding: 10px 0;
+}
+
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 30px 0;
+    flex: 1;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.button {
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    color: #00BCD4;
+    background: #ECECEC;
+    transition: .4s;
+    min-width: 140px;
+}
+
+.button:hover {
+    background: #00bcd4;
+    color: white;
+}
+
+footer {
+    background-color: #f4f3e4;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
