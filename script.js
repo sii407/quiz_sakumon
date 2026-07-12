@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('');
 
             setupAnswerClickEvents();
-            quizList.style.display = 'none';
 
         } catch (error) {
             console.error(error);
@@ -60,9 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         quizList.style.display = 'flex';
         rowArea.style.display = 'none';
     });
-
-    quizList.style.display = 'none';
-    rowArea.style.display = 'flex';
 
     loadQuizData();
 });
