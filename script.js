@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `).join('');
 
             setupAnswerClickEvents();
+            quizList.style.display = 'none';
 
         } catch (error) {
             console.error(error);
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const answerBoxes = document.querySelectorAll('.answer-box');
         answerBoxes.forEach(box => {
             box.addEventListener('click', () => {
-                if (quizList.classList.contains('solve-mode')) {
+                if (quizList.style.display === 'flex') {
                     box.classList.toggle('open');
                 }
             });
@@ -45,9 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnView.classList.add('active');
         btnSolve.classList.remove('active');
         
-        quizList.classList.remove('solve-mode');
-        quizList.classList.add('view-mode');
-
         quizList.style.display = 'none';
         rowArea.style.display = 'flex';
         
@@ -59,9 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnSolve.classList.add('active');
         btnView.classList.remove('active');
         
-        quizList.classList.remove('view-mode');
-        quizList.classList.add('solve-mode');
-
         quizList.style.display = 'flex';
         rowArea.style.display = 'none';
     });

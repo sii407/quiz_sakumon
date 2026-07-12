@@ -147,11 +147,44 @@ header h1 {
 
 .answer-box {
     padding: 12px 16px;
-    background: #f1f5f9;
-    border-radius: 8px;
     font-weight: 700;
-    border-left: 4px solid #00BCD4;
     transition: all 0.3s ease;
+    background: linear-gradient(45deg, #334155 25%, #1e293b 25%, #1e293b 50%, #334155 50%, #334155 75%, #1e293b 75%, #1e293b 100%);
+    background-size: 14px 14px;
+    color: transparent;
+    border-left: 4px solid #475569;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.answer-box.open {
+    background: #e0f7fa;
+    color: #006064;
+    border-left: 4px solid #00BCD4;
+    box-shadow: none;
+    user-select: text;
+}
+
+.answer-box:not(.open)::after {
+    content: "タップして答えを表示";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 4px 12px;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.answer-box:not(.open) .answer-label,
+.answer-box:not(.open) .answer-text {
+    opacity: 0;
 }
 
 .answer-label {
