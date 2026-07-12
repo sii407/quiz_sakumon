@@ -9,12 +9,19 @@
     <body>
         <header>
             <h1>sii407作問クイズ</h1>
+            <div class="mode-switcher">
+                <button id="btn-view" class="mode-btn active">見る</button>
+                <button id="btn-solve" class="mode-btn">解く</button>
+            </div>
         </header>
+
         <div class="quiz-container">
             <div class="row">
                 <a href="1-100.pdf" class="button" target="_blank" rel="noopener">1-100(PDF)</a>
                 <a href="1-100.xlsx" class="button" target="_blank" rel="noopener">1-100(Excel)</a>
             </div>
+
+            <div id="quiz-list" class="view-mode"></div>
         </div>
 
         <footer>

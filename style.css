@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
 html, body {
     height: 100%;
 }
 
 body {
     margin: 0;
-    padding-top: 80px;
+    padding-top: 90px;
     text-align: center;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
 header {
@@ -17,27 +22,59 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 60px;
-    background-color: #f4f3e4; 
-    color: rgb(0, 0, 0);
+    min-height: 70px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    color: #222;
     align-items: center;
     justify-content: space-around;
     z-index: 998;
     box-sizing: border-box;
+    padding: 0 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 header h1 {
     margin: 0;
     padding: 10px 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.mode-switcher {
+    display: flex;
+    background: #eee;
+    padding: 4px;
+    border-radius: 30px;
+}
+
+.mode-btn {
+    padding: 8px 20px;
+    font-weight: bold;
+    border: none;
+    background-color: transparent;
+    color: #666;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.mode-btn.active {
+    background-color: #00BCD4;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.4);
 }
 
 .quiz-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 25px;
     align-items: center;
-    margin: 30px 0;
+    margin: 20px 0;
     flex: 1;
+    padding: 0 20px;
 }
 
 .row {
@@ -51,23 +88,124 @@ header h1 {
 .button {
     display: inline-block;
     font-weight: bold;
-    padding: 0.5em 1em;
+    padding: 0.6em 1.2em;
     text-decoration: none;
     color: #00BCD4;
-    background: #ECECEC;
-    transition: .4s;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
     min-width: 140px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 .button:hover {
     background: #00bcd4;
     color: white;
+    border-color: #00bcd4;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+}
+
+#quiz-list {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quiz-item {
+    background: #ffffff;
+    border: 1px solid #eaedf1;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.quiz-item:hover {
+    transform: translateY(-1px);
+}
+
+.question {
+    margin: 0 0 14px 0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+.question::first-letter {
+    color: #00BCD4;
+    font-size: 1.1rem;
+}
+
+.answer-box {
+    padding: 12px 16px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    font-weight: 700;
+    border-left: 4px solid #00BCD4;
+    transition: all 0.3s ease;
+}
+
+.solve-mode .answer-box {
+    background: linear-gradient(45deg, #334155 25%, #1e293b 25%, #1e293b 50%, #334155 50%, #334155 75%, #1e293b 75%, #1e293b 100%);
+    background-size: 14px 14px;
+    color: transparent;
+    border-left: 4px solid #475569;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.solve-mode .answer-box.open {
+    background: #e0f7fa;
+    color: #006064;
+    border-left: 4px solid #00BCD4;
+    box-shadow: none;
+}
+
+.solve-mode .answer-box:not(.open)::after {
+    content: "タップして答えを表示";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    background: rgba(15, 23, 42, 0.8);
+    padding: 4px 12px;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.solve-mode .answer-box:not(.open) .answer-label,
+.solve-mode .answer-box:not(.open) .answer-text {
+    opacity: 0;
+}
+
+.answer-label {
+    color: #00838f;
+    margin-right: 4px;
 }
 
 footer {
-    background-color: #f4f3e4;
-    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    color: #777;
     text-align: center;
-    padding: 20px 0;
+    padding: 24px 0;
     width: 100%;
+    font-size: 0.8rem;
+    border-top: 1px solid #eaeaea;
+    line-height: 1.6;
+}
+.solve-mode ~ .row,
+:has(.solve-mode) .row {
+    display: none;
 }
