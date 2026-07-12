@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnView = document.getElementById('btn-view');
     const btnSolve = document.getElementById('btn-solve');
     const quizList = document.getElementById('quiz-list');
+    const rowArea = document.querySelector('.row');
 
     async function loadQuizData() {
         try {
@@ -21,40 +22,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `).join('');
 
-            setupAnswerClickEvents();
-
         } catch (error) {
             console.error(error);
             quizList.innerHTML = '<p style="color:red; text-align:center;">クイズデータの読み込み中にエラーが発生しました。</p>';
         }
     }
 
-    function setupAnswerClickEvents() {
-        const answerBoxes = document.querySelectorAll('.answer-box');
-        answerBoxes.forEach(box => {
-            box.addEventListener('click', () => {
-                if (quizList.classList.contains('solve-mode')) {
-                    box.classList.toggle('open');
-                }
-            });
-        });
-    }
-
     btnView.addEventListener('click', () => {
         btnView.classList.add('active');
         btnSolve.classList.remove('active');
-        quizList.classList.remove('solve-mode');
-        quizList.classList.add('view-mode');
         
-        const answerBoxes = document.querySelectorAll('.answer-box');
-        answerBoxes.forEach(box => box.classList.remove('open'));
+        quizList.style.display = 'flex';
+        rowArea.style.display = 'flex';
     });
 
     btnSolve.addEventListener('click', () => {
         btnSolve.classList.add('active');
         btnView.classList.remove('active');
-        quizList.classList.remove('view-mode');
-        quizList.classList.add('solve-mode');
+        
+        quizList.style.display = 'none';
+        rowArea.style.display = 'none';
     });
 
     loadQuizData();
