@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizList = document.getElementById('quiz-list');
     const quizContainer = document.querySelector('.quiz-container');
     const quizSwitcher = document.getElementById('quiz-switcher');
+    const viewDownloadArea = document.getElementById('view-download-area');
     const tabButtons = document.querySelectorAll('.quiz-tab-btn');
 
     let currentMode = 'solve';
@@ -66,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         quizList.style.display = 'none';
         quizSwitcher.style.display = 'none';
-        quizContainer.style.marginTop = '0px';
+        viewDownloadArea.style.display = 'flex';
+        quizContainer.style.marginTop = '60px';
     });
 
     btnSolve.addEventListener('click', () => {
@@ -75,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnView.classList.remove('active');
         
         quizSwitcher.style.display = 'flex';
+        viewDownloadArea.style.display = 'none';
         quizContainer.style.marginTop = '60px';
         
         const activeTab = document.querySelector('.quiz-tab-btn.active');
@@ -87,5 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     quizList.style.display = 'none';
     quizSwitcher.style.display = 'flex';
+    viewDownloadArea.style.display = 'none';
     quizContainer.style.marginTop = '60px';
+
+    loadQuizData('quiz-data.json');
 });

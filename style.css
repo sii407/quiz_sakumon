@@ -41,7 +41,7 @@ header h1 {
     letter-spacing: 0.05em;
 }
 
-.quiz-switcher {
+.quiz-switcher, .view-download-area {
     display: flex;
     position: fixed;
     top: 70px;
@@ -50,10 +50,18 @@ header h1 {
     background-color: #ffffff;
     padding: 10px 24px;
     box-sizing: border-box;
-    gap: 10px;
+    gap: 15px;
     z-index: 998;
     border-bottom: 1px solid #eaeaea;
+}
+
+.quiz-switcher {
     justify-content: flex-start;
+}
+
+.view-download-area {
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .mode-switcher {
@@ -91,7 +99,7 @@ header h1 {
     padding: 0 20px 20px 20px;
 }
 
-.button {
+.tab-button {
     display: inline-block;
     font-weight: bold;
     padding: 6px 16px;
@@ -106,10 +114,32 @@ header h1 {
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.button:hover, .button.active {
+.tab-button:hover, .tab-button.active {
     background: #00bcd4;
     color: white;
     border-color: #00bcd4;
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
+}
+
+.download-button {
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.6em 1.2em;
+    text-decoration: none;
+    color: #00BCD4;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.download-button:hover {
+    background: #00bcd4;
+    color: white;
+    border-color: #00bcd4;
+    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
 }
 
