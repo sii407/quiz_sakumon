@@ -67,7 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         quizList.style.display = 'none';
         quizSwitcher.style.display = 'none';
-        viewDownloadArea.style.display = 'flex';
+        
+        viewDownloadArea.style.setProperty('display', 'flex', 'important');
         quizContainer.style.marginTop = '60px';
     });
 
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnView.classList.remove('active');
         
         quizSwitcher.style.display = 'flex';
-        viewDownloadArea.style.display = 'none';
+        viewDownloadArea.style.setProperty('display', 'none', 'important');
         quizContainer.style.marginTop = '60px';
         
         const activeTab = document.querySelector('.quiz-tab-btn.active');
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     quizList.style.display = 'none';
     quizSwitcher.style.display = 'flex';
-    viewDownloadArea.style.display = 'none';
+    viewDownloadArea.style.setProperty('display', 'none', 'important');
     quizContainer.style.marginTop = '60px';
 
     loadQuizData('quiz-data.json');
